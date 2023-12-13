@@ -3,19 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingots.Core", "Ingots.Core\Ingots.Core.csproj", "{A571CD4D-3C2F-47FC-A744-A22B921EED43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ingots.Core", "Ingots.Core\Ingots.Core.csproj", "{A571CD4D-3C2F-47FC-A744-A22B921EED43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingots.Parsers", "Ingots.Parsers\Ingots.Parsers.csproj", "{77A0CFDA-DE4C-4778-854B-A8F3F936BA19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ingots.Parsers", "Ingots.Parsers\Ingots.Parsers.csproj", "{77A0CFDA-DE4C-4778-854B-A8F3F936BA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingots.ViewModels", "Ingots.ViewModels\Ingots.ViewModels.csproj", "{63D99476-C656-418E-AEDF-4B3D3EF42058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ingots.ViewModels", "Ingots.ViewModels\Ingots.ViewModels.csproj", "{63D99476-C656-418E-AEDF-4B3D3EF42058}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ingots.Avalonia", "Ingots.Avalonia\Ingots.Avalonia.csproj", "{42B00A3B-3133-45E5-B884-B31CC156DB62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ingots.Avalonia.Desktop", "Ingots.Avalonia.Desktop\Ingots.Avalonia.Desktop.csproj", "{EA5F8910-2CA5-4678-B9C8-60CE7D5C0967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingots.Sqlite", "Ingots.Sqlite\Ingots.Sqlite.csproj", "{8DD23892-9AEC-4772-B75D-66742007FAB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A571CD4D-3C2F-47FC-A744-A22B921EED43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +33,20 @@ Global
 		{63D99476-C656-418E-AEDF-4B3D3EF42058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D99476-C656-418E-AEDF-4B3D3EF42058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D99476-C656-418E-AEDF-4B3D3EF42058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B00A3B-3133-45E5-B884-B31CC156DB62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B00A3B-3133-45E5-B884-B31CC156DB62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B00A3B-3133-45E5-B884-B31CC156DB62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B00A3B-3133-45E5-B884-B31CC156DB62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5F8910-2CA5-4678-B9C8-60CE7D5C0967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5F8910-2CA5-4678-B9C8-60CE7D5C0967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5F8910-2CA5-4678-B9C8-60CE7D5C0967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5F8910-2CA5-4678-B9C8-60CE7D5C0967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD23892-9AEC-4772-B75D-66742007FAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD23892-9AEC-4772-B75D-66742007FAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD23892-9AEC-4772-B75D-66742007FAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD23892-9AEC-4772-B75D-66742007FAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

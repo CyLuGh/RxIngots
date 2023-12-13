@@ -5,7 +5,7 @@ using ReactiveUI.Fody.Helpers;
 
 namespace Ingots.ViewModels;
 
-public class AccountViewModel : ReactiveObject
+public class AccountViewModel : ViewModelBase
 {
     [Reactive] public Option<int> Id { get; private set; }
     [Reactive] public string? Bank { get; set; }
