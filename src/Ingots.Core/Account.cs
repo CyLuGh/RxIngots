@@ -10,4 +10,5 @@ public record Account
     public AccountKind Kind { get; init; }
     public double StartValue { get; init; }
     public string? Stash { get; init; } = "None";
+    public Owner[] Owners { get; init; } = [];
 }

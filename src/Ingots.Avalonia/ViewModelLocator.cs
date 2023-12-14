@@ -1,4 +1,6 @@
-﻿using Ingots.ViewModels;
+﻿using Ingots.Data;
+using Ingots.Data.Sqlite;
+using Ingots.ViewModels;
 using Splat;
 
 namespace Ingots.Avalonia;
@@ -10,6 +12,9 @@ public sealed class ViewModelLocator
     private ViewModelLocator()
     {
         SplatRegistrations.RegisterLazySingleton<IngotsViewModel>();
+        SplatRegistrations.RegisterLazySingleton<IDataManager,DataManager>();
+        
+        SplatRegistrations.SetupIOC();
     }
 
     public IngotsViewModel IngotsViewModel => Locator.Current.GetService<IngotsViewModel>()!;

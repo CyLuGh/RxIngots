@@ -15,6 +15,7 @@ public class AccountViewModel : ViewModelBase
     [Reactive] public AccountKind Kind { get; set; }
     [Reactive] public double StartValue { get; set; }
     [Reactive] public string? Stash { get; set; }
+    [Reactive] public Seq<Owner> Owners { get; set; }
 
     public AccountViewModel()
     {
@@ -30,5 +31,6 @@ public class AccountViewModel : ViewModelBase
         Kind = account.Kind;
         StartValue = account.StartValue;
         Stash = account.Stash;
+        Owners = account.Owners.ToSeq();
     }
 }
