@@ -15,6 +15,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Ingots.Core\Ingots.Core.csproj" />
       <ProjectReference Include="..\Ingots.Data\Ingots.Data.csproj" />
+      <ProjectReference Include="..\Ingots.Parsers\Ingots.Parsers.csproj" />
     </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@ public class AccountViewModel : ViewModelBase
     [Reactive] public string? Description { get; set; }
     [Reactive] public string? Iban { get; set; }
     [Reactive] public AccountKind Kind { get; set; }
-    [Reactive] public double StartValue { get; set; }
+    [Reactive] public decimal StartValue { get; set; }
     [Reactive] public string? Stash { get; set; }
     [Reactive] public Seq<Owner> Owners { get; set; }
 

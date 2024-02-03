@@ -8,7 +8,7 @@ public record Account
     public string? Description { get; init; } = "Unknown";
     public string? Iban { get; init; }
     public AccountKind Kind { get; init; }
-    public double StartValue { get; init; }
+    public decimal StartValue { get; init; }
     public string? Stash { get; init; } = "None";
     public Owner[] Owners { get; init; } = [];
 }
