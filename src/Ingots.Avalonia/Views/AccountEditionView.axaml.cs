@@ -10,7 +10,7 @@ using System.Reactive.Linq;
 
 namespace Ingots.Avalonia.Views;
 
-public partial class AccountEditionView : ReactiveUserControl<AccountViewModel>
+public partial class AccountEditionView : ReactiveUserControl<AccountEditionViewModel>
 {
     public AccountEditionView()
     {
@@ -26,5 +26,5 @@ public partial class AccountEditionView : ReactiveUserControl<AccountViewModel>
         } );
     }
     
-    private static void PopulateFromViewModel(AccountEditionView view,AccountViewModel viewModel,CompositeDisposable disposables){}
+    private static void PopulateFromViewModel(AccountEditionView view,AccountEditionViewModel viewModel,CompositeDisposable disposables){}
 }

@@ -1,6 +1,7 @@
 ﻿global using RxUnit = System.Reactive.Unit;
 global using RxCommand = ReactiveUI.ReactiveCommand<System.Reactive.Unit,System.Reactive.Unit>;
-
+global using RxInteraction = ReactiveUI.Interaction<System.Reactive.Unit,System.Reactive.Unit>;
+using Ingots.Core;
 using Ingots.Data;
 using Ingots.Parsers;
 using Ingots.Parsers.Importers;
@@ -16,11 +17,16 @@ public class IngotsViewModel : ViewModelBase
 {
     public Seq<AccountViewModel> Accounts { [ObservableAsProperty] get; }
     
+    public ReactiveCommand<AccountViewModel,RxUnit>? EditAccount { get; private set; }
+    public Interaction<AccountViewModel,RxUnit> EditAccountInteraction { get; } = new(RxApp.MainThreadScheduler);
+    
     public RxCommand? CreateDatabase { get; private set; }
     public RxCommand? TestImporter { get; private set; }
     
     public IngotsViewModel(IDataManager dataManager)
     {
+        EditAccountInteraction.RegisterHandler( ctx => ctx.SetOutput( RxUnit.Default ) );
+        
         InitializeCommands(dataManager);
         
         this.WhenActivated( disposables =>
@@ -65,5 +71,7 @@ public class IngotsViewModel : ViewModelBase
             
             Console.WriteLine();
         } );
+
+        EditAccount = ReactiveCommand.CreateFromObservable( (AccountViewModel avm) => EditAccountInteraction.Handle( avm ) );
     }
 }

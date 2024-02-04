@@ -13,6 +13,7 @@ public sealed class ViewModelLocator
     {
         SplatRegistrations.RegisterLazySingleton<IngotsViewModel>();
         SplatRegistrations.RegisterLazySingleton<IDataManager,DataManager>();
+        SplatRegistrations.Register<AccountEditionViewModel>();
         
         SplatRegistrations.SetupIOC();
     }
