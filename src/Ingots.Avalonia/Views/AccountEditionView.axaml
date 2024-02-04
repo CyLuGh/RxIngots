@@ -5,6 +5,29 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Ingots.Avalonia.Views.AccountEditionView">
     <Grid Background="White">
-        <TextBox></TextBox>
+        <Grid.Resources>
+        </Grid.Resources>
+        <StackPanel Margin="20">
+            <TextBlock Text="IBAN" Margin="0 5"/>
+            <TextBox/>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Bank" Margin="0 5"/>
+                <TextBlock Text="BIC" Margin="0 5"/>
+                <TextBox/>
+                <TextBox/>
+            </UniformGrid>
+            <TextBlock Text="Description"/>
+            <TextBox/>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Kind"/>
+                <TextBlock Text="Stash"></TextBlock>
+                <ComboBox/>
+                <TextBox/>
+                <TextBlock Text="Starting value"/>
+                <TextBlock Text="Owner(s)"/>
+                <NumericUpDown/>
+                <ComboBox/>
+            </UniformGrid>
+        </StackPanel>
     </Grid>
 </UserControl>

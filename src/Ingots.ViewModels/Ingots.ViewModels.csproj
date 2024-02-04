@@ -8,8 +8,8 @@
 
     <ItemGroup>
       <PackageReference Include="LanguageExt.Core" Version="4.4.7" />
-      <PackageReference Include="ReactiveUI" Version="19.5.1" />
-      <PackageReference Include="ReactiveUI.Fody" Version="19.5.1" />
+      <PackageReference Include="ReactiveUI" Version="19.5.41" />
+      <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
     </ItemGroup>
 
     <ItemGroup>
