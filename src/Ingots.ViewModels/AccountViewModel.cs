@@ -33,4 +33,18 @@ public class AccountViewModel : ViewModelBase
         Stash = account.Stash;
         Owners = account.Owners.ToSeq();
     }
+
+    public Account ToAccount() =>
+        new()
+        {
+            AccountId = Id.Match( i => i , () => -1 ) ,
+            Bank = Bank ,
+            Bic = Bic ,
+            Description = Description ,
+            Iban = Iban ,
+            Kind = Kind ,
+            StartValue = StartValue ,
+            Stash = Stash ,
+            Owners = Owners.ToArray()
+        };
 }

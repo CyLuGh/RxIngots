@@ -1,0 +1,39 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Ingots.Avalonia.Views.AccountEditingView">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="IBAN" Margin="0 5" />
+            <TextBox x:Name="TextBoxIban" />
+            <UniformGrid Columns="2">
+                <TextBlock Text="Bank" Margin="0 5" />
+                <TextBlock Text="BIC" Margin="0 5" />
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <TextBox x:Name="TextBoxBank"/>
+                <TextBox x:Name="TextBoxBic"/>
+            </UniformGrid>
+            <TextBlock Text="Description" Margin="0 5" />
+            <TextBox x:Name="TextBoxDescription"/>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Kind" Margin="0 5" />
+                <TextBlock Text="Stash" Margin="0 5" />
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <ComboBox x:Name="ComboBoxKind"/>
+                <TextBox x:Name="TextBoxStash"/>
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <TextBlock Text="Starting value" Margin="0 5" />
+                <TextBlock Text="Owner(s)" Margin="0 5" />
+            </UniformGrid>
+            <UniformGrid Columns="2">
+                <NumericUpDown x:Name="NumericUpDownStartValue"/>
+                <ComboBox VerticalAlignment="Stretch" />
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

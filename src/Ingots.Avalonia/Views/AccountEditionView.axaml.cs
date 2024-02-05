@@ -1,9 +1,7 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
+﻿using Avalonia.ReactiveUI;
 using Ingots.ViewModels;
 using ReactiveUI;
+using SukiUI.Controls;
 using System;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
@@ -25,6 +23,27 @@ public partial class AccountEditionView : ReactiveUserControl<AccountEditionView
                 .DisposeWith( disposables );
         } );
     }
-    
-    private static void PopulateFromViewModel(AccountEditionView view,AccountEditionViewModel viewModel,CompositeDisposable disposables){}
+
+    private static void PopulateFromViewModel( AccountEditionView view , AccountEditionViewModel viewModel ,
+        CompositeDisposable disposables )
+    {
+        view.OneWayBind( viewModel ,
+                vm => vm.Account ,
+                v => v.EditingView.ViewModel )
+            .DisposeWith( disposables );
+
+        view.BindCommand( viewModel ,
+                vm => vm.AddAccount ,
+                v => v.ButtonSave,
+                viewModel.WhenAnyValue( x=>x.Account ))
+            .DisposeWith( disposables );
+
+        view.BindCommand( viewModel ,
+                vm => vm.CloseDialog ,
+                v => v.ButtonCancel )
+            .DisposeWith( disposables );
+
+        viewModel.CloseDialogInteraction.RegisterHandler( _ => SukiHost.CloseDialog() )
+            .DisposeWith( disposables );
+    }
 }

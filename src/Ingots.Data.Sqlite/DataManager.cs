@@ -1,4 +1,5 @@
-﻿using System.Data.SQLite;
+﻿using Ingots.Core;
+using System.Data.SQLite;
 
 namespace Ingots.Data.Sqlite;
 
@@ -34,6 +35,11 @@ public class DataManager : IDataManager
             await tr.RollbackAsync(token);
             throw;
         }
+    }
+
+    public Task<Account> AddAccountAsync( Account account )
+    {
+        return Task.FromResult( account with { AccountId = 4 } );
     }
 
     private static async Task CreateOwnersAsync( SQLiteCommand cm , CancellationToken token = default )

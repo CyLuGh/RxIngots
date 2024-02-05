@@ -5,12 +5,16 @@
              xmlns:vm="clr-namespace:Ingots.ViewModels;assembly=Ingots.ViewModels"
              xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
              xmlns:views="clr-namespace:Ingots.Avalonia.Views"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Ingots.Avalonia.Views.MainView"
              x:DataType="vm:IngotsViewModel">
   <suki:SukiSideMenu>
       <suki:SukiSideMenu.Items>
           <suki:SukiSideMenuItem Header="Accounts">
+              <suki:SukiSideMenuItem.Icon>
+                  <materialIcons:MaterialIcon Kind="Bank"/>
+              </suki:SukiSideMenuItem.Icon>
               <suki:SukiSideMenuItem.PageContent>
                   <views:AccountsView/>
               </suki:SukiSideMenuItem.PageContent>

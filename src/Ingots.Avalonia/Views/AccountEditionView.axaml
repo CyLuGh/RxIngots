@@ -2,32 +2,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:views="clr-namespace:Ingots.Avalonia.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
              x:Class="Ingots.Avalonia.Views.AccountEditionView">
-    <Grid>
-        <Grid.Resources>
-        </Grid.Resources>
-        <StackPanel Margin="20">
-            <TextBlock Text="IBAN" Margin="0 5"/>
-            <TextBox/>
-            <UniformGrid Columns="2">
-                <TextBlock Text="Bank" Margin="0 5"/>
-                <TextBlock Text="BIC" Margin="0 5"/>
-                <TextBox/>
-                <TextBox/>
-            </UniformGrid>
-            <TextBlock Text="Description"/>
-            <TextBox/>
-            <UniformGrid Columns="2">
-                <TextBlock Text="Kind"/>
-                <TextBlock Text="Stash"></TextBlock>
-                <ComboBox/>
-                <TextBox/>
-                <TextBlock Text="Starting value"/>
-                <TextBlock Text="Owner(s)"/>
-                <NumericUpDown/>
-                <ComboBox/>
-            </UniformGrid>
-        </StackPanel>
-    </Grid>
+    <DockPanel>
+        <TextBlock x:Name="TextBlockTitle"
+                   Classes="h3 Primary"
+                   Text="ADD ACCOUNT"
+                   Margin="20 10"
+                   DockPanel.Dock="Top"/>
+        <UniformGrid Rows="1" Margin="10" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
+            <Button x:Name="ButtonSave" Classes="Flat" Margin="5">SAVE</Button>
+            <Button x:Name="ButtonCancel" Classes="Outlined" Margin="5">CANCEL</Button>
+        </UniformGrid>
+        <views:AccountEditingView x:Name="EditingView"
+                                  MinWidth="600"/>
+    </DockPanel>
 </UserControl>

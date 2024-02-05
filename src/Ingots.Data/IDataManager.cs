@@ -1,4 +1,6 @@
-﻿namespace Ingots.Data;
+﻿using Ingots.Core;
+
+namespace Ingots.Data;
 
 public interface IDataManager
 {
@@ -6,4 +8,6 @@ public interface IDataManager
     string ConnectionString { get; }
     
     Task CreateDatabaseAsync( CancellationToken token = default );
+
+    Task<Account> AddAccountAsync( Account account );
 }
