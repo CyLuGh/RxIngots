@@ -6,29 +6,30 @@
              x:Class="Ingots.Avalonia.Views.AccountEditingView">
     <Grid>
         <StackPanel Margin="20">
-            <TextBlock Text="IBAN" Margin="0 5" />
+            <TextBlock Text="IBAN" Classes="h4" Margin="0 5" />
             <TextBox x:Name="TextBoxIban" />
+            <TextBlock x:Name="TextBlockWarning" Text="IBAN is invalid" Classes="Accent" Margin="10 0"/>
             <UniformGrid Columns="2">
-                <TextBlock Text="Bank" Margin="0 5" />
-                <TextBlock Text="BIC" Margin="0 5" />
+                <TextBlock Text="Bank" Classes="h4" Margin="0 5" />
+                <TextBlock Text="BIC" Classes="h4" Margin="0 5" />
             </UniformGrid>
             <UniformGrid Columns="2">
                 <TextBox x:Name="TextBoxBank"/>
                 <TextBox x:Name="TextBoxBic"/>
             </UniformGrid>
-            <TextBlock Text="Description" Margin="0 5" />
+            <TextBlock Text="Description" Classes="h4" Margin="0 5" />
             <TextBox x:Name="TextBoxDescription"/>
             <UniformGrid Columns="2">
-                <TextBlock Text="Kind" Margin="0 5" />
-                <TextBlock Text="Stash" Margin="0 5" />
+                <TextBlock Text="Kind" Classes="h4" Margin="0 5" />
+                <TextBlock Text="Stash" Classes="h4" Margin="0 5" />
             </UniformGrid>
             <UniformGrid Columns="2">
                 <ComboBox x:Name="ComboBoxKind"/>
                 <TextBox x:Name="TextBoxStash"/>
             </UniformGrid>
             <UniformGrid Columns="2">
-                <TextBlock Text="Starting value" Margin="0 5" />
-                <TextBlock Text="Owner(s)" Margin="0 5" />
+                <TextBlock Text="Starting value" Classes="h4" Margin="0 5" />
+                <TextBlock Text="Owner(s)" Classes="h4" Margin="0 5" />
             </UniformGrid>
             <UniformGrid Columns="2">
                 <NumericUpDown x:Name="NumericUpDownStartValue"/>

@@ -21,7 +21,7 @@
         <suki:GlassCard Margin="10" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
             <DockPanel>
                 <UniformGrid HorizontalAlignment="Right" DockPanel.Dock="Bottom">
-                    <Button x:Name="ButtonAddAccount" Content="{materialIcons:MaterialIconExt Kind=BankAdd}" />
+                    <Button x:Name="ButtonAddAccount" Classes="Outlined" Content="{materialIcons:MaterialIconExt Kind=BankAdd}" />
                 </UniformGrid>
                 <ListBox x:Name="ListBoxAccounts"/>
             </DockPanel>

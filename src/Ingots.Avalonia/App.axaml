@@ -8,7 +8,7 @@
 
     <Application.Styles>
         <FluentTheme />
-        <sukiUi:SukiTheme ThemeColor="Orange" />
+        <sukiUi:SukiTheme ThemeColor="Blue" />
         <avalonia:MaterialIconStyles />
     </Application.Styles>
 </Application>

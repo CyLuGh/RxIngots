@@ -37,9 +37,40 @@ public class DataManager : IDataManager
         }
     }
 
-    public Task<Account> AddAccountAsync( Account account )
+    public async Task<Account> AddAccountAsync( Account account, CancellationToken token = default )
     {
-        return Task.FromResult( account with { AccountId = 4 } );
+        await using var cn = new SQLiteConnection( ConnectionString );
+        await cn.OpenAsync( token );
+
+        await using var cm = cn.CreateCommand();
+        cm.CommandText = "SELECT MAX(id) FROM Accounts";
+        var maxId = ( await cm.ExecuteScalarAsync( token ) )
+            switch
+            {
+                DBNull => 0 ,
+                int i => i ,
+                _ => 0
+            };
+        
+        cm.CommandText =
+            """
+            INSERT INTO Accounts(id, iban, bic, description, startValue, isDeleted, kind, stash, bank) 
+            VALUES (@id,@iban,@bic,@desc,@start,@isdel,@kind,@stash,@bank) 
+            """;
+
+        cm.Parameters.AddWithValue( "@id" , maxId + 1 );
+        cm.Parameters.AddWithValue( "@iban" , account.Iban );
+        cm.Parameters.AddWithValue( "@bic" , account.Bic );
+        cm.Parameters.AddWithValue( "@desc" , account.Description );
+        cm.Parameters.AddWithValue( "@start" , account.StartValue );
+        cm.Parameters.AddWithValue( "@isdel" , false );
+        cm.Parameters.AddWithValue( "@kind" ,(byte) account.Kind );
+        cm.Parameters.AddWithValue( "@stash" , account.Stash );
+        cm.Parameters.AddWithValue( "@bank" , account.Bank );
+
+        await cm.ExecuteNonQueryAsync( token );
+        
+        return account with { AccountId = maxId +1 } ;
     }
 
     private static async Task CreateOwnersAsync( SQLiteCommand cm , CancellationToken token = default )

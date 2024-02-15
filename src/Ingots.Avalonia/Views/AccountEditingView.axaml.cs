@@ -1,7 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
+﻿using Avalonia.ReactiveUI;
 using Ingots.Core;
 using Ingots.ViewModels;
 using ReactiveUI;
@@ -33,6 +30,16 @@ public partial class AccountEditingView : ReactiveUserControl<AccountViewModel>
         view.ComboBoxKind.ItemsSource = Enum.GetValues<AccountKind>();
         
         view.Bind( viewModel ,
+                vm => vm.Iban ,
+                v => v.TextBoxIban.Text )
+            .DisposeWith( disposables );
+        
+        view.Bind( viewModel ,
+                vm => vm.Bic ,
+                v => v.TextBoxBic.Text )
+            .DisposeWith( disposables );
+        
+        view.Bind( viewModel ,
                 vm => vm.Description ,
                 v => v.TextBoxDescription.Text )
             .DisposeWith( disposables );
@@ -41,6 +48,26 @@ public partial class AccountEditingView : ReactiveUserControl<AccountViewModel>
                 vm => vm.Kind ,
                 v => v.ComboBoxKind.SelectedItem )
             .DisposeWith( disposables );
-    }
+        
+        view.Bind( viewModel ,
+                vm => vm.Bank ,
+                v => v.TextBoxBank.Text )
+            .DisposeWith( disposables );
+        
+        view.Bind( viewModel ,
+                vm => vm.Stash ,
+                v => v.TextBoxStash.Text )
+            .DisposeWith( disposables );
 
+        view.Bind( viewModel ,
+                vm => vm.StartValue ,
+                v => v.NumericUpDownStartValue.Value )
+            .DisposeWith( disposables );
+
+        view.OneWayBind( viewModel ,
+                vm => vm.HasValidIban ,
+                v => v.TextBlockWarning.IsVisible,
+                b => !b)
+            .DisposeWith( disposables );
+    }
 }

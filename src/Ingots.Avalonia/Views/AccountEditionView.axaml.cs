@@ -32,6 +32,11 @@ public partial class AccountEditionView : ReactiveUserControl<AccountEditionView
                 v => v.EditingView.ViewModel )
             .DisposeWith( disposables );
 
+        view.Bind( viewModel ,
+                vm => vm.RequireValidIban ,
+                v => v.CheckBoxValidIban.IsChecked )
+            .DisposeWith( disposables );
+
         view.BindCommand( viewModel ,
                 vm => vm.AddAccount ,
                 v => v.ButtonSave,

@@ -2,6 +2,8 @@
 using LanguageExt;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
 
 namespace Ingots.ViewModels;
 
@@ -16,9 +18,18 @@ public class AccountViewModel : ViewModelBase
     [Reactive] public decimal StartValue { get; set; }
     [Reactive] public string? Stash { get; set; }
     [Reactive] public Seq<Owner> Owners { get; set; }
+    
+    public bool HasValidIban { [ObservableAsProperty] get; }
 
     public AccountViewModel()
     {
+        this.WhenActivated( disposables =>
+        {
+            this.WhenAnyValue( x => x.Iban )
+                .Select( IbanUtils.IsValid )
+                .ToPropertyEx( this , x => x.HasValidIban , scheduler: RxApp.MainThreadScheduler )
+                .DisposeWith( disposables );
+        } );
     }
 
     public AccountViewModel( Account account )
@@ -38,13 +49,13 @@ public class AccountViewModel : ViewModelBase
         new()
         {
             AccountId = Id.Match( i => i , () => -1 ) ,
-            Bank = Bank ,
-            Bic = Bic ,
-            Description = Description ,
-            Iban = Iban ,
+            Bank = Bank ?? string.Empty,
+            Bic = Bic ?? string.Empty,
+            Description = Description ?? string.Empty,
+            Iban = Iban ?? string.Empty,
             Kind = Kind ,
             StartValue = StartValue ,
-            Stash = Stash ,
+            Stash = Stash ?? string.Empty,
             Owners = Owners.ToArray()
         };
 }

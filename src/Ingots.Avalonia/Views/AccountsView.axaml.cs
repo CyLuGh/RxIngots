@@ -1,7 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.ReactiveUI;
+﻿using Avalonia.ReactiveUI;
 using Ingots.ViewModels;
 using ReactiveUI;
 using Splat;
@@ -35,7 +32,7 @@ public partial class AccountsView : ReactiveUserControl<IngotsViewModel>
         {
             var vm = Locator.Current.GetService<AccountEditionViewModel>()!;
             vm.Account = ctx.Input;
-            SukiHost.ShowDialog( new AccountEditionView(){ViewModel = vm}, allowBackgroundClose: true );
+            SukiHost.ShowDialog( new AccountEditionView(){ViewModel = vm}, allowBackgroundClose: false );
         } ).DisposeWith( disposables );
 
         view.BindCommand( viewModel ,

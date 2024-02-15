@@ -7,13 +7,14 @@
              x:Class="Ingots.Avalonia.Views.AccountEditionView">
     <DockPanel>
         <TextBlock x:Name="TextBlockTitle"
-                   Classes="h3 Primary"
+                   Classes="h2 Accent"
                    Text="ADD ACCOUNT"
                    Margin="20 10"
                    DockPanel.Dock="Top"/>
         <UniformGrid Rows="1" Margin="10" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
-            <Button x:Name="ButtonSave" Classes="Flat" Margin="5">SAVE</Button>
-            <Button x:Name="ButtonCancel" Classes="Outlined" Margin="5">CANCEL</Button>
+            <CheckBox x:Name="CheckBoxValidIban" Margin="5 0">Require valid IBAN</CheckBox>
+            <Button x:Name="ButtonSave" Classes="Flat Accent" Margin="5">SAVE</Button>
+            <Button x:Name="ButtonCancel" Margin="5">CANCEL</Button>
         </UniformGrid>
         <views:AccountEditingView x:Name="EditingView"
                                   MinWidth="600"/>

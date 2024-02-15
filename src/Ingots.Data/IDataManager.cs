@@ -9,5 +9,5 @@ public interface IDataManager
     
     Task CreateDatabaseAsync( CancellationToken token = default );
 
-    Task<Account> AddAccountAsync( Account account );
+    Task<Account> AddAccountAsync( Account account , CancellationToken token = default );
 }
