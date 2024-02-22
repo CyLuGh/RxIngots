@@ -15,16 +15,24 @@ namespace Ingots.ViewModels;
 
 public class IngotsViewModel : ViewModelBase
 {
+    [Reactive] public Option<string> SelectedFile { get; set; }
+    
     public Seq<AccountViewModel> Accounts { [ObservableAsProperty] get; }
     
     public ReactiveCommand<AccountViewModel,RxUnit>? EditAccount { get; private set; }
     public Interaction<AccountViewModel,RxUnit> EditAccountInteraction { get; } = new(RxApp.MainThreadScheduler);
     
+    public ReactiveCommand<RxUnit,string>? PickExistingDatabase { get; private set; }
+    public Interaction<RxUnit , string> PickExistingDatabaseInteraction { get; } = new(RxApp.MainThreadScheduler);
+    public ReactiveCommand<RxUnit,string>? PickNewDatabase { get; private set; }
+    public Interaction<RxUnit , string> PickNewDatabaseInteraction { get; } = new(RxApp.MainThreadScheduler);
     public RxCommand? CreateDatabase { get; private set; }
     public RxCommand? TestImporter { get; private set; }
     
     public IngotsViewModel(IDataManager dataManager)
     {
+        PickExistingDatabaseInteraction.RegisterHandler( ctx => ctx.SetOutput( string.Empty ) );
+        PickNewDatabaseInteraction.RegisterHandler( ctx => ctx.SetOutput( string.Empty ) );
         EditAccountInteraction.RegisterHandler( ctx => ctx.SetOutput( RxUnit.Default ) );
         
         InitializeCommands(dataManager);
@@ -38,11 +46,19 @@ public class IngotsViewModel : ViewModelBase
             Observable.Return( RxUnit.Default )
                 .InvokeCommand( TestImporter )
                 .DisposeWith( disposables );
+
+            PickExistingDatabase.Subscribe( s =>
+            {
+                Console.WriteLine( s );
+            } );
         } );
     }
 
     private void InitializeCommands(IDataManager dataManager)
     {
+        PickExistingDatabase = ReactiveCommand.CreateFromObservable( () => PickExistingDatabaseInteraction.Handle( RxUnit.Default ) );
+        PickNewDatabase = ReactiveCommand.CreateFromObservable( () => PickNewDatabaseInteraction.Handle( RxUnit.Default ) );
+        
         CreateDatabase = ReactiveCommand.CreateFromTask( async () =>
         {
             await dataManager.CreateDatabaseAsync();

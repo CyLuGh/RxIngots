@@ -4,9 +4,22 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:views="clr-namespace:Ingots.Avalonia.Views"
                  xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
+                 xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
                  mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
                  x:Class="Ingots.Avalonia.Views.MainWindow"
-                 Icon="/Assets/avalonia-logo.ico"
-                 Title="Ingots">
-        <views:MainView />
+                 Title="Ingots"
+                 IsMenuVisible="False">
+    <suki:SukiWindow.LogoContent>
+        <avalonia:MaterialIcon Width="20"
+                               Height="20"
+                               VerticalAlignment="Center"
+                               Foreground="{DynamicResource SukiPrimaryColor}"
+                               Kind="Dog" />
+    </suki:SukiWindow.LogoContent>
+    <suki:SukiWindow.MenuItems>
+        <MenuItem Header="Files">
+            <MenuItem Header="Open or create database"/>
+        </MenuItem>
+    </suki:SukiWindow.MenuItems>
+    <views:MainView />
 </suki:SukiWindow>
